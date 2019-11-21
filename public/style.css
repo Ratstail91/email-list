@@ -1,0 +1,293 @@
+/* global defaults */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font: 12pt Helvetica, Arial;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #FFFFFF;
+	color: #111111;
+}
+
+h1 {
+	font-size: 24pt;
+	color: pink;
+}
+
+h2 {
+	font-size: 14pt;
+	color: lightblue;
+}
+
+h3 {
+	font-size: 12pt;
+	font-weight: bold;
+	color: pink;
+}
+
+br {
+	padding-bottom: .5em;
+}
+
+div.break.half {
+	padding-bottom: .25em;
+}
+
+div.break {
+	padding-bottom: .5em;
+}
+
+ul {
+	list-style-type: disc;
+	list-style-position: inside;
+	padding-bottom: .5em;
+}
+
+a {
+	color: lightblue;
+}
+
+.centered {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* footer */
+footer {
+	flex: 0 1 auto;
+	justify-self: flex-end;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+/* central display */
+.central {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
+	min-height: 100vh;
+	margin: 0 10%;
+}
+
+@media screen and (max-width: 768px) {
+	.central {
+		margin: 0;
+	}
+}
+
+.central p {
+	padding-bottom: .5em;
+}
+
+/* components */
+.page {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.panel {
+	flex: 0 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+/* right-aligned panels */
+.panel.right {
+	align-items: center;
+}
+
+.panel.right form {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	align-self: stretch;
+}
+
+.panel.right form button {
+	align-self: stretch;
+	margin-top: .2em;
+	margin-bottom: .2em;
+}
+
+@media screen and (max-width: 480px) {
+	.panel.right h1 {
+		font-size: 16px;
+	}
+}
+
+/* constrained panels */
+.constrained {
+	align-self: center;
+	max-width: 320px;
+}
+
+@media screen and (max-width: 480px) {
+	.constrained {
+		align-self: stretch;
+		max-width: none;
+	}
+}
+
+/* warning message */
+.warning {
+	flex: 0 1 auto;
+	display: none;
+	flex-direction: row;
+	justify-content: center;
+	align-content: flex-end;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #ff0000;
+	background: #ff6666;
+}
+
+.panel.right .warning {
+	align-self: stretch;
+}
+
+/* SidePanelPage structure */
+.sidePanelPage {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+@media screen and (max-width: 480px) {
+	.sidePanelPage {
+		flex-direction: column;
+	}
+}
+
+/* side panel */
+.sidePanel {
+	flex: 0 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	min-width: 160px;
+	width: 160px;
+}
+
+@media screen and (max-width: 480px) {
+	.sidePanel {
+		align-self: stretch;
+		width: auto;
+	}
+}
+
+/* main panel */
+.mainPanel {
+	margin-left: 30px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+	.mainPanel {
+		margin-left: 15px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.mainPanel {
+		margin-left: 0;
+		align-self: stretch;
+		width: auto;
+	}
+}
+
+/* flexbox tables */
+.table {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.table .row {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+@media screen and (max-width: 480px) {
+	.table .row {
+		flex-direction: column;
+	}
+}
+
+.table .row .col {
+	flex: 1 1 1%;
+	min-width: 0;
+}
+
+.table .row .col.double {
+	flex: 2 1 2%;
+}
+
+@media screen and (max-width: 480px) {
+	.table .row .col.double {
+		flex: 2 1 2.5%;
+	}
+}
+
+.table.noCollapse .row, .table .row.noCollapse {
+	flex-direction: row;
+}
+
+/* mobile control */
+.mobile.show {
+	display: none;
+}
+
+.mobile.centered {
+	text-align: initial;
+}
+
+@media screen and (max-width: 480px) {
+	.mobile.show {
+		display: inline-block;
+	}
+
+	.mobile.hide {
+		display: none;
+	}
+
+	.mobile.centered {
+		text-align: center;
+	}
+
+	/* hybrid of table and mobile control */
+	.mobile.col.half {
+		flex: 0.5;
+	}
+}
